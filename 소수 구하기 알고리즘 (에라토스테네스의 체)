@@ -1,4 +1,31 @@
 
 에라토스테네스의 체는 소수를 판별할 범위만큼 배열을 할당하고, 해당하는 값에서 소수가 아닌 값을 하나씩 지워나가는 방법을 활용합니다
 
-python 알고리즘
+python source code
+
+
+c 언어 source code
+
+#include <stdio.h>
+
+int number = 100000;
+int a[100001];
+
+void primeNumberSieve() {
+    for(int i = 2; i <= number; i++) {
+        a[i] = i;
+    }
+    for(int i = 2; i <= number; i++) {
+        if(a[i] ==0) continue;
+        for(int j = i + i; j <= number; j += i) {
+            a[j] = 0;
+        }
+    }
+    for(int i = 2; i <= number; i++) {
+        if(a[i] != 0) printf("%d ", a[i]);
+    }
+}
+
+int main(void) {
+    primeNumberSeive();
+}
